@@ -1,10 +1,9 @@
 {
   "scripts": {
-    "start": "node js/server.js"
+    "start": "node js/server.js",
+    "build": "node build.js"
   },
-
-  "dependencies":
-  {
+  "dependencies": {
     "cors": "^2.8.6",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",

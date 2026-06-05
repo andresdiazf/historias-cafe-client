@@ -35,7 +35,7 @@ app.post("/create_preference", async (req, res) => {
     // En producción usa el dominio de Render; en local, localhost:3000
     const BASE_URL = process.env.BASE_URL
       || (process.env.NODE_ENV === "production"
-          ? "https://e-commerce-historias-de-cafe.onrender.com"
+          ? "https://historias-cafe-client.onrender.com"
           : "http://localhost:3000");
  
     const result = await preference.create({
@@ -63,7 +63,7 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   const BASE_URL = process.env.BASE_URL
     || (process.env.NODE_ENV === "production"
-        ? "https://e-commerce-historias-de-cafe.onrender.com"
+        ? "https://historias-cafe-client.onrender.com"
         : `http://localhost:${PORT}`);
   console.log(`Servidor corriendo en ${BASE_URL}`);
 });

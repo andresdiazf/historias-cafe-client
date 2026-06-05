@@ -7,7 +7,7 @@ let existingImageUrl = '';
 // Base URL de tu API de productos (detecta si estás en local o producción)
 const API_URL_PRODUCTS = (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1")
   ? "http://localhost:8080/products"
-  : "https://e-commerce-historias-de-cafe-backend-3c6t.onrender.com/products";
+  : "https://historias-cafe-api.onrender.com/products";
 
 function obtenerHeadersAutenticados() {
   const token = localStorage.getItem("authToken");
@@ -133,8 +133,8 @@ function initProductLogic() {
     if (isValid) {
       const file = imagenInput.files && imagenInput.files[0] ? imagenInput.files[0] : null;
       
-      const CLOUD_NAME = "dg6oyckab"; 
-      const UPLOAD_PRESET = "historias_de_cafe"; 
+      const CLOUD_NAME = APP_CONFIG.cloudinary.cloudName; 
+      const UPLOAD_PRESET = APP_CONFIG.cloudinary.uploadPreset; 
       
       const btnSubmit = form.querySelector("button[type='submit']");
       if (btnSubmit) {
