@@ -86,6 +86,20 @@ function cargarFormContact() {
     }
 
     if (isValid) {
+      // Validar si el servicio de contacto está habilitado
+      if (!APP_CONFIG.contact.enabled) {
+        Swal.fire({
+          title: 'Servicio Temporal',
+          text: 'El formulario de contacto está temporalmente deshabilitado. Disculpa las molestias.',
+          icon: 'info',
+          confirmButtonText: 'Entendido',
+          confirmButtonColor: '#532721',
+          background: '#fdfcfb',
+          color: '#532721'
+        });
+        return;
+      }
+
       try {
         // Enviar a Formspree usando fetch
         const formData = {
@@ -95,7 +109,7 @@ function cargarFormContact() {
           message: mensajeVal
         };
 
-        const response = await fetch('https://formspree.io/f/xlgajpkq', {
+        const response = await fetch('https://formspree.io/f/#####', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
