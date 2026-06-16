@@ -87,7 +87,8 @@ function cargarFormContact() {
 
     if (isValid) {
       // Validar si el servicio de contacto está habilitado
-      if (!APP_CONFIG.contact.enabled) {
+      const contactEnabled = (typeof APP_CONFIG !== 'undefined') && APP_CONFIG?.contact?.enabled;
+      if (!contactEnabled) {
         Swal.fire({
           title: 'Servicio Temporal',
           text: 'El formulario de contacto está temporalmente deshabilitado. Disculpa las molestias.',
